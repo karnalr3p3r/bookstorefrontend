@@ -4,9 +4,8 @@ import axios from "axios";
 export default class App extends Component {
   constructor() {
     super();
-
     this.state = {
-      books: {},
+      books: [],
     };
   }
 
@@ -15,17 +14,28 @@ export default class App extends Component {
       .get("http://127.0.0.1:5000/book/get")
       .then((response) => {
         console.log(response);
+        this.setState({ books: response.data });
       })
       .catch((error) => {
         console.error(error);
       });
   }
 
+  renderBooks() {
+    return this.state.books.map((book) => {
+      return (
+        <div key={book.id}>
+          <h1>book title: {book.name}</h1>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <div className="app">
-        <h1>DevCamp React Starter</h1>
-        <h2>React + React Router</h2>
+        <h1>My Book Store</h1>
+        {this.renderBooks()}
       </div>
     );
   }
