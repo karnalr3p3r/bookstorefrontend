@@ -17,7 +17,7 @@ export default function addBook() {
       })
       .then((response) => console.log("Book Added", response))
       .catch((error) => console.log(error));
-    Event.preventDefault();
+    event.preventDefault();
   };
 
   return (
