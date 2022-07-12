@@ -16,6 +16,8 @@ html {
 body {
   overflow-x: hidden;
   font-weight: normal;
+  background-image: url(../../static/assets/images/bookshelf.jpg);
+  background-size: cover;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,3 +33,4 @@ body {
 
 @import "./add-book.scss";
 @import "./navbar.scss";
+@import "./book.scss";
