@@ -9,7 +9,7 @@ export default function addBook() {
 
   const postBook = () => {
     axios
-      .post("http://127.0.0.1:5000/book/add", {
+      .post("https://jad-bookstore-api.herokuapp.com/book/add", {
         name: name,
         author: author,
         price: price,
@@ -17,14 +17,14 @@ export default function addBook() {
       })
       .then((response) => console.log("Book Added", response))
       .catch((error) => console.log(error));
+    Event.preventDefault();
   };
 
   return (
-    <div>
-      <div className="add-book">
-        <h1 className="add-book-title">Enter book data</h1>
-      </div>
-      <form onSubmit={postBook}>
+    <div className="add-book">
+      <h1 className="add-book-title">Enter book data</h1>
+
+      <form className="add-book-form" onSubmit={postBook}>
         <input
           className="add-book-form-input"
           onChange={(event) => setName(event.target.value)}
